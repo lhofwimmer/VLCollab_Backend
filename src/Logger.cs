@@ -1,23 +1,24 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
-using vlcollab_server.src;
 
-namespace vlcollab_server.src
+namespace vlcollab_server
 {
     public static class Logger
     {
-        private static string path;
+        private static readonly string path;
         static Logger() {
-            path = ConfigManager.getLoggerPath();
+            path = ConfigManager.GetLoggerPath();
             Console.WriteLine($"Initialized logger with file: <{path}>");
         }
 
         public static void Log(string text) {
             if(File.Exists(path)) {
+                Directory.CreateDirectory(path);
                 File.Create(path);
             }
-            System.Console.WriteLine(text);
-            File.AppendAllLines(path, new List<string>(text));
+            Console.WriteLine(text);
+            File.AppendAllLines(path, new[] {text});
         }
     }
 }

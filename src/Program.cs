@@ -1,7 +1,4 @@
-﻿using System;
-using vlcollab_server.src;
-
-namespace vlcollab_server.src
+﻿namespace vlcollab_server
 {
     class Program
     {
