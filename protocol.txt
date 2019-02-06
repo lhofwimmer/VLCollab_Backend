@@ -1,0 +1,25 @@
+//communicate normal player functions
+execute;start
+execute;stop;<timestamp>
+execute;movetimestamp
+
+
+//if client disconnect -> pause video for all other clients 
+event;clientDisconnect
+
+//if new client connects -> move the player to current time of other clients
+event;clientConnect
+
+//retrieve current time of vlc player
+get;currentPlayerTime
+
+
+//lobby stuff
+lobby;
+
+
+top level types:
+
+execute: does player stuff (eg: start, stop, movetimestamp)
+event: lobby stuff, player stuff (e.g. player connects, disconnects)
+get: retrieve data (e.g. timestamp)
